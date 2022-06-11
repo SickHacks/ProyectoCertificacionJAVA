@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+<div class="container">
+        
+          <div id="title" class="text-center">
+		    <h3>Crear Curso</h3>
+		  </div>
+      
+   <div class="row">
+   	<div class="col">
+        <form action="#" th:action="@{/admin/guardarCurso}" th:object="${curso}" method="post">
+			 <fieldset>
+                    <legend>Información del curso</legend>
+                    
+					<input id="idcurso" th:field="*{id}" type="hidden">
+                   
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input id="nombre" name="nombre" th:field="*{nombre}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="imge">Imagen *</label>
+                                <input id="imge" name="imge" th:field="*{imagen}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="desc">Descripcion *</label>
+                                <textarea id="desc" name="desc" th:field="*{descripcion}" type="text"
+                                       class="form-control required"></textarea>
+                     		</div>
+                        </div>
+                        <div class="col-6">
+                            
+                     		<div class="form-group">
+                                <label for="fecIni">Fecha Inicio *</label>
+                                <input id="fecIni" name="fecIni" th:field="*{fecinicio}" type="date"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="fecTerm">Fecha Termino *</label>
+                                <input id="fecTerm" name="fecTerm" th:field="*{fectermino}" type="date"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="cupos">Cupos *</label>
+                                <input id="cupos" name="cupos" th:field="*{cupos}" type="number"
+                                       class="form-control required">
+                     		</div>
+                        </div>
+                    </div>
+			 </fieldset>  
+			 <button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button> 
+		</form>
+		<span style="color:red" th:text="${mensaje}"></span>
+   	</div>
+  </div>
+</div>
+
+
+</body>
+</html>

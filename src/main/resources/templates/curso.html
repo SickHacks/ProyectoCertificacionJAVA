@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+<style>
+	body {
+		background: linear-gradient(to right, rgb(45, 45, 45), rgb(79, 79, 94));
+		}
+	body {
+		color:rgb(255, 255, 255);
+		}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div id="title">
+        <br>
+            <h2>Detalle Curso</h2>
+        </div>
+       
+    </div>
+    <div class="row">
+       <table id="Curso Detail" class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Descripcion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="result">
+                <td><h4 th:text="${curso.id}" id="id"/></td>
+                <td><h4 th:text="${curso.nombre}" id="name"/></td>   
+                <td><img th:src="@{${curso.imagen}}"/></td>
+                <td><h4 th:text="${curso.descripcion}" id="descripcion"/></td>   
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/asignarCurso/{id}(id=${curso.id})}">Asignar</a>
+    <span style="color:red" th:text="${mensaje}"></span>
+</div>
+</body>
+</html>

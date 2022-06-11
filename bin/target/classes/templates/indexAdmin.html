@@ -1,0 +1,71 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Aplicacion Cursos Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+<h2>Bienvenido Administrador</h2>
+			
+	<div class="row">
+         <table id="allEstud" class="table table-striped">
+            <thead>
+            <tr>
+                <th width="20%">Nombre</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Termino</th>
+                <th>Descripcion</th>
+                <th>Accion</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="result" data-th-each="cur : ${cursos}">
+                <td>[[${cur.nombre}]]</td>
+                <td>[[${cur.fecinicio}]]</td>
+                <td>[[${cur.fectermino}]]</td>
+                 <td>[[${cur.descripcion}]]</td>
+                 
+                <td><a th:href="@{/obtiene/{id}(id=${cur.id})}">Ver </a>
+                <a th:href="@{/admin/editarCurso/{id}(id=${cur.id})}"> Editar</a></td> 
+                 <td><a th:href="@{/admin/eliminarCurso/{id}(id=${cur.id})}"> Eliminar</a> 
+                <a th:href="@{/admin/agregarContenido/{id}(id=${cur.id})}"> AddContenido</a></td> 
+                 
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/admin/crearCurso/}">Crear</a>
+</div>

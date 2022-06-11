@@ -1,0 +1,189 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+<style>
+body {
+background: linear-gradient(to right, rgb(45, 45, 45), rgb(79, 79, 94));
+}
+body {
+	color:rgb(255, 255, 255);
+}
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Cursos Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+          
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="bannerindexadmin">
+
+	<img class="img-fluid"
+		src="https://www.expoelearning.com/wp-content/uploads/2021/12/BANNER-web-Tendencias-2022-1.jpg" alt="bannerindexadmin">
+
+</section>
+<div class="container">
+<br>
+<h2>Bienvenido Administrador</h2>
+<br>
+	<div class="row">
+         <table id="allEstud" class="table table-striped">
+            <thead>
+            <tr>
+                <th width="20%">Nombre</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Termino</th>
+                <th>Descripcion</th>
+                <th>Accion</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="result" data-th-each="cur : ${cursos}">
+                <td>[[${cur.nombre}]]</td>
+                <td>[[${cur.fecinicio}]]</td>
+                <td>[[${cur.fectermino}]]</td>
+                 <td>[[${cur.descripcion}]]</td>
+                 
+                <td><a th:href="@{/obtiene/{id}(id=${cur.id})}">Ver </a>
+                <a th:href="@{/admin/editarCurso/{id}(id=${cur.id})}"> Editar</a></td> 
+                 <td><a th:href="@{/admin/eliminarCurso/{id}(id=${cur.id})}"> Eliminar</a> 
+                <a th:href="@{/admin/agregarContenido/{id}(id=${cur.id})}"> AddContenido</a></td> 
+                 
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/admin/crearCurso/}">Crear</a>
+</div>
+<br><br><br><br>
+<br><br>
+<!-- Footer -->
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: rgb(49, 49, 49)"
+          >
+    <!-- Section: Social media -->
+    <section
+             class="d-flex justify-content-between p-2"
+             style="background-color: rgb(65, 135, 252)"
+             >
+      <!-- Left -->
+      <div class="me-5">
+        <span>Conéctate con nosotros en las redes sociales:</span>
+      </div>
+      <!-- Left -->
+
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Nombre de la compañia</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: rgb(65, 135, 252); height: 2px"
+                />
+            <p>
+              Cursos Online®
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Productos</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: rgb(65, 135, 252); height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">Merchandising</a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: rgb(65, 135, 252); height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">Tu Cuenta</a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contacto</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: rgb(65, 135, 252); height: 2px"
+                />
+            <p><i class="fas fa-envelope mr-3"></i> cursosonline@email.com</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/"
+         >cursosonline.com</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+  </body>
+</html>
+  

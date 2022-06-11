@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+<div class="container">
+        
+          <div id="title" class="text-center">
+		    <h3>Registrate</h3>
+		  </div>
+      
+   <div class="row">
+   	<div class="col">
+        <form action="#" th:action="@{/guardar}" th:object="${estudiante}" method="post">
+			 <fieldset>
+                    <legend>Account Information</legend>
+
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="userName">RUT *</label>
+                                <input id="userName" name="username" th:field="*{rut}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="password">Password *</label>
+                                <input id="password" name="password" th:field="*{password}" type="password"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input id="nombre" name="nombre" th:field="*{nombre}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="cel">Telefono *</label>
+                                <input id="cel" name="cel" th:field="*{telefono}" type="text"
+                                       class="form-control required">
+                     		</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="Direccion">Direccion *</label>
+                                <input id="Direccion" name="Direccion" th:field="*{direccion}" type="text"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                                <label for="Email">Email *</label>
+                                <input id="Email" name="Email" th:field="*{email}" type="email"
+                                       class="form-control required">
+                     		</div>
+                     		<div class="form-group">
+                     		<label for="Region">Region *</label>
+                     		</div>
+                     		<div class="form-group">
+                                        <select  id="Region" name="Region" th:field="*{idRegion}">
+										    <option th:each="i : ${regiones}" th:value="${i.id}" th:text="${i.detalle}">
+										    </option>
+									    </select>
+                     		</div>
+                     		<div class="form-group">
+                                <label for="edad">Edad *</label>
+                                <input id="edad" name="edad" th:field="*{edad}" type="number"
+                                       class="form-control required">
+                     		</div>
+                        </div>
+                    </div>
+			 </fieldset>  
+			 <button class="btn btn-large btn-success" type="submit">Registrar</button> 
+		</form>
+		<span style="color:red" th:text="${mensaje}"></span>
+   	</div>
+  </div>
+</div>
+
+
+</body>
+</html>

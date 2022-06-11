@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Sistema Certificación</title>
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+</head>
+<body>
+<div class="container">
+        
+          <div id="title" class="text-center">
+		    <h3>Agregar Contenido</h3>
+		  </div>
+			<div class="row">
+			   	<div class="col-5">
+			        <form action="#" th:action="@{/admin/guardarContenido}" th:object="${contenido}" method="post">
+						 <fieldset>
+			                    <legend>Información del Contenido</legend>
+								<input id="idcurso" th:field="*{idCurso}" type="hidden">
+			                    <div class="row">
+			                        <div class="col-5">
+			                        <div class="form-group">
+			                                <label for="nombre">Nombre *</label>
+			                                <input id="nombre" name="nombre" th:field="*{nombre}" type="text"
+			                                       class="form-control required">
+			                     		</div>
+			                            <div class="form-group">
+			                                <label for="detalle">Detalle *</label>
+			                                <input id="detalle" name="detalle" th:field="*{detalle}" type="text"
+			                                       class="form-control required">
+			                     		</div>
+			                        </div>
+			                    </div>
+						 </fieldset>
+						  <button class="btn btn-lg btn-success btn-block" type="submit">Guardar</button> 
+						  
+			        </form>
+			         <span style="color:red" th:text="${mensaje}"></span>
+			         <br>
+			         <form id="hotDealForm" th:action="@{/admin}" method="get">
+					    <button class="btn btn-lg btn-primary btn-block" type="submit">Volver</button>
+					</form>
+			   	</div>
+			   	  	<div class="col-6">
+			        	 <fieldset>
+			                    <legend>Contenidos Asignados</legend>
+								<table id="allEstud" class="table table-striped">
+						            <thead>
+						            <tr>
+						                <th width="20%">Nombre</th>
+						                <th>Descripcion</th>
+						            </tr>
+						            </thead>
+						            <tbody>
+						            <tr class="result" data-th-each="cont : ${contenidos}">
+						                <td>[[${cont.nombre}]]</td>
+						                 <td>[[${cont.detalle}]]</td>
+						                <td><a th:href="@{/admin/elimina/{id}(id=${cont.id})}">Eliminar </a>
+						            </tr>
+						            </tbody>
+						        </table>
+						 </fieldset>
+			        <span style="color:red" th:text="${mensaje}"></span>
+			   	</div>
+			</div>
+</div>		   
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link data-th-href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link data-th-href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+<h2>Tab1</h2>
+
+	<div class="row">
+         <table id="allEstud" class="table table-striped">
+            <thead>
+            <tr>
+                <th width="20%">RUT</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                 <th>IdCurso</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="result" data-th-each="est : ${estudiantes}">
+                <td>[[${est.rut}]]</td>
+                <td>[[${est.nombre}]]</td>
+                <td>[[${est.telefono}]]</td>
+                 <td>[[${est.email}]]</td>
+                 <td>[[${est.idCurso}]]</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+</body></html>
